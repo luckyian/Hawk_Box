@@ -3,9 +3,13 @@ let newTitle = $("#title");
 let postBody = $("newPost");
 let newVideo = $("#video");
 
-$("#newPost").on("submit", function handlePostSubmit(event) {
+$("#newPost").on("submit", (event)=> {
   event.preventDefault();
-  if (!newTitle.val().trim() || !postBody.val().trim()) {
+  if (
+    !newTitle.val().trim() ||
+    !postBody.val().trim() ||
+    !newVideo.val().trim()
+  ) {
     return;
   }
   let post = {
