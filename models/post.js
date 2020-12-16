@@ -11,6 +11,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
+    },
+    video: {
+      type: DataTypes.STRING,
+      allowNull: true,
     }
   });
 
