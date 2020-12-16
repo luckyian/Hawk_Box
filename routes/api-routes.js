@@ -1,4 +1,4 @@
-var db = require("../models");
+const db = require("../models");
 
 // Routes
 // =============================================================
@@ -6,7 +6,7 @@ module.exports = function(app) {
 
   // GET route for getting all of the posts
   app.get("/api/posts", function(req, res) {
-    var query = {};
+    const query = {};
     if (req.query.author_id) {
       query.AuthorId = req.query.author_id;
     }
@@ -16,4 +16,8 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
+
+  
+
+
 }
