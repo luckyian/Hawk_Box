@@ -16,6 +16,7 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
+  
   app.post("/api/newpost", function(req, res) {
     console.log(req.body);
     db.post.create({
