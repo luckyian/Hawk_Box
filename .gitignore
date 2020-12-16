@@ -1,6 +1,8 @@
 .env
 .DS_Store
 node_modules
+blogpost.html
+newpost.html
 # Logs
 logs
 *.log
