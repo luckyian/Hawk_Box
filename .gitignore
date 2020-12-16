@@ -3,6 +3,7 @@
 node_modules
 blogpost.html
 newpost.html
+singlepost.html
 # Logs
 logs
 *.log
