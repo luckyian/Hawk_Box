@@ -20,21 +20,26 @@
 <div class="container">
     <div class="row">
         <div class="col-4"></div>
-        <div class="card col-s-6 col-m-4 col-l-4">
-            <div class="card-body">
-                <div class="mb-3">
-                    <label for="PostTitle" class="form-label">Title</label>
-                    <input type="title" class="form-control" id="title" placeholder="Give your post a title" />
+        <div class="col-s-6 col-m-4 col-l-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="PostTitle" class="form-label">Title</label>
+                        <input type="title" class="form-control col-4" id="title"
+                            placeholder="Give your post a title" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormTextarea" class="form-label">Post</label>
+                        <textarea class="form-control col-4" id="blogText" rows="10"></textarea>
+                    </div>
+                    <button type="button" id="newPost" class="btn btn-success">
+                        Publish
+                    </button>
                 </div>
-                <div class="mb-3">
-                    <label for="FormTextarea" class="form-label">Post</label>
-                    <textarea class="form-control" id="blogText" rows="10"></textarea>
-                </div>
-                <button type="button" id="newPost" class="btn btn-success">
-                    Publish
-                </button>
             </div>
         </div>
-        <div class="col-s-3 col-m-4 col-l-4"></div>
+        <div class="col-s-3 col-m-4 col-l-4">
+
+        </div>
     </div>
 </div>
