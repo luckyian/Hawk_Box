@@ -25,6 +25,7 @@ body {
 #createPost {
   background-color: #76c15e;
   border-color: #b5b6ba;
+  margin-right: 5px;
 }
 .accordion-body {
     background-color: #ffffff;
