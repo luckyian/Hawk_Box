@@ -2,6 +2,8 @@ body {
   background-image: url("../images/background.jpg");
   background-size: cover;
 }
+
+/* Navbar CSS */
 #navbar {
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -22,6 +24,8 @@ body {
 .navbar-toggler {
   border-color: #ffffff;
 }
+
+/* blogpost.handlebars CSS */
 #createPost {
   background-color: #76c15e;
   border-color: #b5b6ba;
@@ -34,6 +38,8 @@ body {
 .accordion-button {
   background-color: #b5b6ba;
 }
+
+/* singlepost.handlebars CSS */
 #iframe {
   position: relative;
   overflow: hidden;
