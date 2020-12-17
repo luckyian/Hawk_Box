@@ -19,4 +19,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../views/newpost.html"));
   });
 
+  app.get("/singlepost", function(req, res){
+    res.sendFile(path.join(__dirname, "../views/singlepost.html"));)
+  });
 };
