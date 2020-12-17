@@ -20,6 +20,6 @@ module.exports = function(app) {
   });
 
   app.get("/singlepost", function(req, res){
-    res.sendFile(path.join(__dirname, "../views/singlepost.html"));)
+    res.sendFile(path.join(__dirname, "../views/singlepost.html"))
   });
 };
