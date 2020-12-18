@@ -57,10 +57,12 @@
     <div class="col-8">
         <div class="card">
             <div class="card-body">
+              {{#each}}
               <blockquote class="blockquote mb-0">
                 <p>{{this.comment}}</p>
                 <footer class="blockquote-footer"><cite title="author">{{this.author}}</cite></footer>
               </blockquote>
+              {{/each}}
             </div>
           </div>
     </div>
