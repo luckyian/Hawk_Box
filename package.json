@@ -10,10 +10,7 @@
   },
   "license": "ISC",
   "dependencies": {
-
-    "dotenv": "^8.2.0",
     "eslint": "^4.19.1",
-
     "express": "4.17.1",
     "express-handlebars": "5.2.0",
     "express-session": "^1.17.1",
@@ -24,7 +21,6 @@
     "travis-cli": "^1.0.9",
     "dotenv": "8.2.0",
     "mysql2": "2.2.5"
-
   },
   "devDependencies": {
     "handlebars-helper-css": "^0.1.0",
