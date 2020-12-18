@@ -3,6 +3,7 @@
 function getPosts() {
   $.get("/api/posts", (data) => {
     let posts = {
+      id: data.id,
       title: data.title,
       video: data.video,
       body: data.body,
@@ -17,5 +18,3 @@ Handlebars.registerHelper("readMore", function (str) {
   if (str.length > 30) return str.substring(0, 30) + "...";
   return str;
 });
-
-
