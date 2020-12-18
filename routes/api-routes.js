@@ -16,8 +16,17 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
-
   
+  app.post("/api/newpost", function(req, res) {
+    console.log(req.body);
+    db.post.create({
+      title: req.body.title,
+      body: req.body.body,
+      video: req.body.video
+    }).then(function(post) {
+      // We have access to the new post as an argument inside of the callback function
+      res.json(post);
+    });
+  });
 
-
-}
+};
