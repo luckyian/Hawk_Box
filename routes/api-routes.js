@@ -19,7 +19,7 @@ module.exports = function(app) {
   
   app.post("/api/newpost", function(req, res) {
     console.log(req.body);
-    db.post.create({
+    db.Post.create({
       title: req.body.title,
       body: req.body.body,
       video: req.body.video
