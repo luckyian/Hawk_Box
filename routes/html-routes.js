@@ -1,25 +1,29 @@
 const path = require("path");
+const db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
-
+module.exports = function (app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads view.html
-  app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "../views/homepage.html"));
   });
-  // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/blogpost.html"));
+
+  app.get("/blogpost", function (req, res) {
+    db.Post.findAll({}).then(function (dbPost) {
+      res.render("blogpost", dbPost);
+    });
+
+    res.render("blogpost");
   });
 
-  app.get("/newpost", function(req, res){
-    res.sendFile(path.join(__dirname, "../views/newpost.html"));
+  app.get("/newpost", function (req, res) {
+    res.render("newpost");
   });
 
-  app.get("/singlepost", function(req, res){
-    res.sendFile(path.join(__dirname, "../views/singlepost.html"))
+  app.get("/singlepost", function (req, res) {
+    res.sendFile(path.join(__dirname, "../views/singlepost.html"));
   });
 };
