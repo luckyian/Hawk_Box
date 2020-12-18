@@ -1,4 +1,4 @@
-var path = require("path");
+const path = require("path");
 
 // Routes
 // =============================================================
@@ -8,17 +8,18 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "../views/homepage.html"));
   });
-  
-  app.get("/blogpost", function(req, res) {
-    res.render("blogpost", { blogpost:  });
-  });
-
   // blog route loads blog.html
   app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "../views/blogpost.html"));
   });
 
-  
+  app.get("/newpost", function(req, res){
+    res.sendFile(path.join(__dirname, "../views/newpost.html"));
+  });
+
+  app.get("/singlepost", function(req, res){
+    res.sendFile(path.join(__dirname, "../views/singlepost.html"))
+  });
 };
