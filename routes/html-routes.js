@@ -10,8 +10,6 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/homepage.html"));
   });
-  
-  
   // blog route loads blog.html
   app.get("/blog", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/blogpost.html"));
@@ -19,5 +17,9 @@ module.exports = function(app) {
 
   app.get("/newpost", function(req, res){
     res.sendFile(path.join(__dirname, "../views/newpost.html"));
+  });
+
+  app.get("/singlepost", function(req, res){
+    res.sendFile(path.join(__dirname, "../views/singlepost.html"))
   });
 };
