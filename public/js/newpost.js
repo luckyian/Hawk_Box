@@ -1,10 +1,9 @@
-// JS file for newpost.handlebars
-let newTitle = $("#title");
-let postBody = $("newPost");
-let newVideo = $("#video");
-
-$("#newPost").on("submit", (event)=> {
+// JS file for newpost.handlebar
+$("#newPost").on("click", (event) => {
   event.preventDefault();
+  let newTitle = $("#title");
+  let postBody = $("#blogText");
+  let newVideo = $("#video");
   if (
     !newTitle.val().trim() ||
     !postBody.val().trim() ||
@@ -22,7 +21,7 @@ $("#newPost").on("submit", (event)=> {
 });
 
 function newBlog(post) {
-  $.post("/api/posts", post, function () {
+  $.post("/api/newpost", post, function () {
     window.location.href = "/blogpost";
   });
 }
