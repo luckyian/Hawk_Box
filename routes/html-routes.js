@@ -1,12 +1,16 @@
 const path = require("path");
+const db = require("../models");
 
 // Routes
 // =============================================================
+<<<<<<< HEAD
 
 const db = require("../models");
 
 // Routes
 // =============================================================
+=======
+>>>>>>> 5ac8f935802af8eedb67aef56b258518138ee3eb
 module.exports = function (app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
