@@ -12,8 +12,9 @@ module.exports = function (app) {
   });
 
   app.get("/blogpost", function (req, res) {
-    db.Post.findAll({}).then(function (dbPost) {
-      res.render("blogpost", dbPost);
+    db.Post.findAll({}).then((posts) => {
+      console.log(posts);
+      res.render("blogpost", posts);
     });
 
     res.render("blogpost");
