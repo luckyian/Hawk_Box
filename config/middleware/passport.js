@@ -9,6 +9,8 @@ const Auth0Strategy = require("passport-auth0");
 
 require("dotenv").config();
 
+const authRouter = require("./auth");
+
 //App variables
 const app = express();
 const port = process.env.PORT || "8000";
@@ -57,4 +59,39 @@ passport.serializeUser((user, done) => {
   
   passport.deserializeUser((user, done) => {
     done(null, user);
+  });
+
+//custom middleware with Express
+
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+});
+  //Router mounting
+  app.use("/", authRouter);
+
+  //Routes Definitions
+  
+  const secured = (req, res, next) => {
+    if (req.user) {
+      return next();
+    };
+    req.session.returnTo = req.originalUrl;
+    res.redirect("/login");
+  };
+
+  app.get("/", (req, res) => {
+    res.render("index", { title: "Home" });
+  });
+  app.get("/user", secured, (req, res, next) => {
+    const { _raw, _json, ...userProfile } = req.user;
+    res.render("user", {
+      title: "Profile",
+      userProfile: userProfile
+    });
+  });
+
+  //Server Activation
+  app.listen(port, () => {
+    console.log(`Listening to requests on http://localhost:${port}`);
   });
