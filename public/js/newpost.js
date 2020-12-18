@@ -22,7 +22,7 @@ $("#newPost").on("submit", (event)=> {
 });
 
 function newBlog(post) {
-  $.post("/api/post", post, function () {
+  $.post("/api/posts", post, function () {
     window.location.href = "/blogpost";
   });
 }

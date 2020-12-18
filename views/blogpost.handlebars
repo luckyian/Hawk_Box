@@ -38,18 +38,18 @@
     <div class="row">
         <div class="col-l-2 col-m-2 col-s-1"></div>
         <div class="accordion col-l-8 col-m-8 col-s-10" id="blogpost">
-            {{#each post}}
+            {{#each posts}}
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        {{readMore this.title}}
+                        {{this.title}}
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        {{this.body}}
+                        {{readMore this.body}}<a href="/singlepost/{{this.id}}">See more.</a>
                     </div>
                 </div>
             </div>
