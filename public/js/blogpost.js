@@ -15,7 +15,7 @@
 // Custom helper for blogpost.handlebars.
 // Only the first 30 characters will be displayed to the user
 
-Handlebars.registerHelper("readMore", function (str) {
-  if (str.length > 30) return str.substring(0, 30) + "...";
-  return str;
-});
+// Handlebars.registerHelper("readMore", function (str) {
+//   if (str.length > 30) return str.substring(0, 30) + "...";
+//   return str;
+// });

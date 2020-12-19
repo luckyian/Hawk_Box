@@ -1,6 +1,7 @@
 const path = require("path");
 const db = require("../models");
-const router = require("express").router();
+
+// const router = require("express").outer();
 
 // Routes
 // =============================================================
@@ -13,9 +14,19 @@ module.exports = function (app) {
   });
 
   app.get("/blogpost", function (req, res) {
-    db.Post.findAll({}).then((posts) => {
-      console.log(posts);
-      res.render("blogpost", posts);
+    // db.Cats.findAll({}).then(function(data){
+    //   var hbsObject = {
+    //     cats: data.map( cat => cat.dataValues)
+    //   };
+    //   console.log(hbsObject);
+    //   res.render("index", hbsObject);
+    // })
+    db.Post.findAll({}).then((data) => {
+      let hbsObject = {
+        posts: data.map((post) => post.dataValues),
+      };
+      console.log(hbsObject);
+      res.render("blogpost", hbsObject);
     });
   });
 
