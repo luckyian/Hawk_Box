@@ -44,7 +44,7 @@ const strategy = new Auth0Strategy(
 
 //App Configuration
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+app.set("view engine", "handlebars");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(expressSession(session));
