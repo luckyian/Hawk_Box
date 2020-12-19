@@ -15,9 +15,10 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         video: {
-            type: DataTypes.STRING,
-            allowNull: true
-        }
-    });
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
+    
+    })
     return Post;
 };

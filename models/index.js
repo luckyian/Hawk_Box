@@ -10,14 +10,17 @@ const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 let sequelize;
 
+if (process.env.JAWSDB_URL) {
+  // Database is JawsDB on Heroku
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
 
 
-
-
-if (config.use_env_variable) {
+}
+else if (config.use_env_variable) {
  
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
+} 
+else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
   
 }
