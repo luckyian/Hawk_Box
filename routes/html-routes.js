@@ -1,5 +1,6 @@
 const path = require("path");
 const db = require("../models");
+const router = require("express").router();
 
 // Routes
 // =============================================================
@@ -16,8 +17,6 @@ module.exports = function (app) {
       console.log(posts);
       res.render("blogpost", posts);
     });
-
-    res.render("blogpost");
   });
 
   app.get("/newpost", function (req, res) {
