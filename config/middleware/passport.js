@@ -13,7 +13,7 @@ const authRouter = require("./auth");
 
 //App variables
 const app = express();
-const port = process.env.PORT || "8000";
+const port = process.env.PORT || "8080";
 
 //Session Configuration
 const session = {
