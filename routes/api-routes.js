@@ -12,6 +12,7 @@ module.exports = function (app) {
     db.Post.findAll({
       where: query,
     }).then(function (dbPost) {
+      
       res.json(dbPost);
     });
   });
