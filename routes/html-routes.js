@@ -15,7 +15,6 @@ module.exports = function (app) {
       let hbsObject = {
         posts: data.map((post) => post.dataValues),
       };
-      console.log(hbsObject);
       res.render("blogpost", hbsObject);
     });
   });
@@ -24,7 +23,15 @@ module.exports = function (app) {
     res.render("newpost");
   });
 
-  app.get("/singlepost", function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/singlepost.html"));
+  app.get("/singlepost/:id", function (req, res) {
+    db.Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+    }).then((data) => {
+      console.log(data);
+      console.log(data.title);
+      res.render("singlepost", data);
+    });
   });
 };
