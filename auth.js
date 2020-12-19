@@ -62,6 +62,4 @@ router.get("/logout", (req, res) => {
   
     res.redirect(logoutURL);
   });
-//Stopped at 9:30 on 12/15
-
 //Module Exports
