@@ -1,11 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-light" id="navbar">
+    <div class="container-fluid blog-nav">
+        <a class="navbar-brand" href="#">Hawk Box</a>
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <a class="btn btn-primary" id="createPost" href="/blogpost" role="button">View Blog Post</a>
+
+            <a class="btn btn-primary" id="signIn" href="#" role="button">Sign in</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Hawk Box</h1>
+            <p class="lead">
+                A Place for Seahawks fans to discuss everything Seahawks!
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Current Season Stats</h5>
+                <p class="card-text">
+                    Total Touchdowns:<span id="touchdown"></span>
+                    <br />
+                    Total Passing Yards:<span id="passingYards"></span>
+                    <br />
+                    :<span id="firstdown"></span>
+                    <br />
+
+                    <br />
+                <h5 class="card-title">Russel Wilson Stats</h5>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Most Recent Post</h5>
+                <p>
+                    {{dataValues.title}}
+                    <br>
+                <div id="iframe">
+                    <iframe id="player" type="text/html" width="640" height="390" src="{{dataValues.video}}"
+                        frameborder="0"></iframe>
+                </div>
+
+                <br>
+                {{dataValues.body}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="./public/js/homepage.js"></script>

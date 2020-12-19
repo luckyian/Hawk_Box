@@ -3,6 +3,9 @@
 node_modules
 blogpost.html
 newpost.html
+singlepost.html
+package-lock.json
+homepage.html
 # Logs
 logs
 *.log
