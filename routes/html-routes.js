@@ -12,9 +12,6 @@ module.exports = function (app) {
       limit: 1,
     }).then((data) => {
       console.log(data);
-      // let hbsObject = {
-      //   posts: data.map((post) => post.dataValues),
-      // };
       res.render("homepage", data);
     });
   });
