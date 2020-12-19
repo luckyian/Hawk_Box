@@ -15,7 +15,7 @@ $("#newPost").on("click", (event) => {
   // in the Youtube link with "embed"
   let embedVideo = () => {
     let trimURL = newVideo.val().trim();
-    let replaceWatch = trimURL.replace("watch", "embed");
+    let replaceWatch = trimURL.replace("watch?=", "embed/");
     return replaceWatch;
   };
   let post = {
@@ -28,6 +28,7 @@ $("#newPost").on("click", (event) => {
 });
 
 function newBlog(post) {
+  console.log(post);
   $.post("/api/newpost", post, function () {
     window.location.href = "/blogpost";
   });

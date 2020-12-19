@@ -30,7 +30,6 @@ module.exports = function (app) {
       },
     }).then((data) => {
       console.log(data);
-      console.log(data.title);
       res.render("singlepost", data);
     });
   });
