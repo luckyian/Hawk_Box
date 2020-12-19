@@ -9,6 +9,9 @@
     "test": "npm run lint"
   },
   "license": "ISC",
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "eslint": "^4.19.1",
     "express": "4.17.1",
