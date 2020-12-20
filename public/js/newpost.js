@@ -15,7 +15,9 @@ $("#newPost").on("click", (event) => {
   // in the Youtube link with "embed"
   let embedVideo = () => {
     let trimURL = newVideo.val().trim();
-    let replaceWatch = trimURL.replace("watch?=", "embed/");
+    trimURL = trimURL.slice(32);
+    let replaceWatch = `https://www.youtube.com/embed/${trimURL}`;
+    console.log(replaceWatch);
     return replaceWatch;
   };
   let post = {
