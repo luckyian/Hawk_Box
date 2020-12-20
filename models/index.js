@@ -13,7 +13,7 @@ let sequelize;
 
 if (process.env.JAWSDB_URL) {
   // Database is JawsDB on Heroku
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
 
 
 }
