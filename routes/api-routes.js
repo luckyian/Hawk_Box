@@ -25,7 +25,7 @@ module.exports = function (app) {
   });
 
   app.post("/api/signup", function(req, res) {
-    db.User.create({
+    db.Users.create({
       username: req.body.username,
       password: req.body.password
     })
