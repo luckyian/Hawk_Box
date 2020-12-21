@@ -13,7 +13,7 @@ const authRouter = require("./auth");
 
 //App variables
 const app = express();
-const port = process.env.PORT || "8000";
+const port = process.env.PORT || "8080";
 
 //Session Configuration
 const session = {
@@ -44,7 +44,7 @@ const strategy = new Auth0Strategy(
 
 //App Configuration
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+app.set("view engine", "handlebars");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(expressSession(session));
