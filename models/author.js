@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var Author = sequelize.define("Author", {
+  let Author = sequelize.define("Author", {
     // Giving the Author model a name of type STRING
     name: DataTypes.STRING
   });
@@ -12,8 +12,20 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: "cascade"
 
     });
+    
 
   };
+
+  Author.associate = function (models) {
+    // Associating Author with comments
+    // When an Author is deleted, also delete any associated comments
+
+    Author.hasMany(models.Comment, {
+      onDelete: "cascade"
+
+    });
+  };
+
 
   return Author;
 };
