@@ -1,97 +1,49 @@
-//Required external modules
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
 
-const express = require("express");
-const path = require("path");
+var db = require("../../models");
 
-const expressSession = require("express-session");
-const passport = require("passport");
-const Auth0Strategy = require("passport-auth0");
-
-require("dotenv").config();
-
-const authRouter = require("./auth");
-
-//App variables
-const app = express();
-const port = process.env.PORT || "8080";
-
-//Session Configuration
-const session = {
-  secret: process.env.SESSION_SECRET,
-  cookie: {},
-  resave: false,
-  saveUninitialized: false
-};
-
-if (app.get("env") === "production") {
-  // Serve secure cookies, requires HTTPS
-  session.cookie.secure = true;
-}
-
-//Passport Configuration
-const strategy = new Auth0Strategy(
+// Telling passport we want to use a Local Strategy. In other words, we want login with a username/username and password
+passport.use(new LocalStrategy(
+  // Our user will sign in using a "username"
   {
-    domain: process.env.AUTH0_DOMAIN,
-    clientID: process.env.AUTH0_CLIENT_ID,
-    clientSecret: process.env.AUTH0_CLIENT_SECRET,
-    callbackURL: process.env.AUTH0_CALLBACK_URL
+    usernameField: "username"
   },
-  function(accessToken, refreshToken, extraParams, profile, done) {
-    
-    return done(null, profile);
-  }
-);
-
-//App Configuration
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "handlebars");
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use(expressSession(session));
-
-passport.use(strategy);
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser((user, done) => {
-    done(null, user);
-  });
-  
-  passport.deserializeUser((user, done) => {
-    done(null, user);
-  });
-
-//custom middleware with Express
-
-app.use((req, res, next) => {
-  res.locals.isAuthenticated = req.isAuthenticated();
-  next();
-});
-  //Router mounting
-  app.use("/", authRouter);
-
-  //Routes Definitions
-  
-  const secured = (req, res, next) => {
-    if (req.user) {
-      return next();
-    };
-    req.session.returnTo = req.originalUrl;
-    res.redirect("/login");
-  };
-
-  app.get("/", (req, res) => {
-    res.render("index", { title: "Home" });
-  });
-  app.get("/user", secured, (req, res, next) => {
-    const { _raw, _json, ...userProfile } = req.user;
-    res.render("user", {
-      title: "Profile",
-      userProfile: userProfile
+  function (username, password, done) {
+    // When a user tries to sign in this code runs
+    db.User.findOne({
+      where: {
+        username: username
+      }
+    }).then(function (dbUser) {
+      // If there's no user with the given username
+      if (!dbUser) {
+        return done(null, false, {
+          message: "Incorrect username."
+        });
+      }
+      // If there is a user with the given username, but the password the user gives us is incorrect
+      else if (!dbUser.validPassword(password)) {
+        return done(null, false, {
+          message: "Incorrect password."
+        });
+      }
+      // If none of the above, return the user
+      return done(null, dbUser);
     });
-  });
+  }
+));
 
-  //Server Activation
-  app.listen(port, () => {
-    console.log(`Listening to requests on http://localhost:${port}`);
-  });
+// In order to help keep authentication state across HTTP requests,
+// Sequelize needs to serialize and deserialize the user
+// Just consider this part boilerplate needed to make it all work
+passport.serializeUser(function (user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function (obj, cb) {
+  cb(null, obj);
+});
+
+// Exporting our configured passport
+module.exports = passport;
