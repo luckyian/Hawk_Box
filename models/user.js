@@ -2,7 +2,7 @@
 var bcrypt = require("bcryptjs");
 // Creating our User model
 module.exports = function (sequelize, DataTypes) {
-  var User = sequelize.define("User", {
+  var User = sequelize.define("Users", {
     // The username cannot be null, and must have at least one character before creation
     username: {
       type: DataTypes.STRING,
@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
     // Associating User with Posts
     // When an User is deleted, also delete any associated Posts
 
-    User.hasMany(models.Post, {
+    User.hasMany(models.Posts, {
       onDelete: "cascade"
 
     });
@@ -44,7 +44,7 @@ module.exports = function (sequelize, DataTypes) {
     // Associating User with comments
     // When an User is deleted, also delete any associated comments
 
-    User.hasMany(models.Comment, {
+    User.hasMany(models.Comments, {
       onDelete: "cascade"
 
     });

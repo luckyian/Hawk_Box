@@ -1,4 +1,5 @@
 const db = require("../models");
+var passport = require("../config/passport");
 
 // Routes
 // =============================================================
@@ -15,6 +16,12 @@ module.exports = function (app) {
       
       res.json(dbPost);
     });
+  });
+
+  app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
   });
 
   app.post("/api/newpost", function (req, res) {
