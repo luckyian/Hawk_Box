@@ -43,7 +43,7 @@ router.get("/logout", (req, res) => {
     let returnTo = req.protocol + "://" + req.hostname;
     const port = req.connection.localPort;
   
-    if (port !== undefined && port !== 80 && port !== 443) {
+    if (port !== undefined && port !== 8080 && port !== 443) {
       returnTo =
         process.env.NODE_ENV === "production"
           ? `${returnTo}/`
