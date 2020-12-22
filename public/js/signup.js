@@ -9,15 +9,16 @@ $(document).ready(function () {
     $("#alert").fadeIn(500);
   }
 
-  // Does a post to the signup route. If successful, we are redirected to the members page
+  // Does a post to the signup route. If successful, we are redirected to the homepage
   // Otherwise we log any errors
-  function signUpUser(user, password) {
+  function signUpUser(username, password) {
+    console.log(username, password);
     $.post("/api/signup", {
-      user: user,
+      username: username,
       password: password
     })
       .then(function (data) {
-        window.location.replace("/members");
+        window.location.replace("/");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
@@ -35,11 +36,11 @@ $(document).ready(function () {
       password: passwordInput.val().trim()
     };
     console.log(userData);
-    if (!userData.user || !userData.password) {
+    if (!userData.username || !userData.password) {
       return;
     }
     // If we have an user and password, run the signUpUser function
-    signUpUser(userData.user, userData.password);
+    signUpUser(userData.username, userData.password);
     userInput.val("");
     passwordInput.val("");
   });
