@@ -43,9 +43,6 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  // User.associate = function (models) {
-  //   // Associating User with comments
-  //   // When an User is deleted, also delete any associated comments
-  // };
+  
   return User;
 };
