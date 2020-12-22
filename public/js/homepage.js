@@ -1,9 +1,3 @@
-$(document).ready(function () {
-  if ($('#iframe[src="https://www.youtube.com/embed/"]')) {
-    $("#iframe").addClass("hide");
-  }
-});
-
 let sportsURL =
   "https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/2020?key=241bf3462fda4eebb6b748ab2574f691";
 $.ajax({

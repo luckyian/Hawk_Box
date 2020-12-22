@@ -4,16 +4,15 @@ $("#newPost").on("click", (event) => {
   let newTitle = $("#title");
   let postBody = $("#blogText");
   let newVideo = $("#video");
-  if (
-    !newTitle.val().trim() ||
-    !postBody.val().trim() 
-    
-  ) {
+  if (!newTitle.val().trim() || !postBody.val().trim()) {
     return;
   }
   // Function for replacing the "watch"
   // in the Youtube link with "embed"
   let embedVideo = () => {
+    if (!newVideo.val().trim()) {
+      return null;
+    }
     let trimURL = newVideo.val().trim();
     trimURL = trimURL.slice(32);
     let replaceWatch = `https://www.youtube.com/embed/${trimURL}`;
