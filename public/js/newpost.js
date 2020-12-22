@@ -6,8 +6,8 @@ $("#newPost").on("click", (event) => {
   let newVideo = $("#video");
   if (
     !newTitle.val().trim() ||
-    !postBody.val().trim() ||
-    !newVideo.val().trim()
+    !postBody.val().trim() 
+    
   ) {
     return;
   }

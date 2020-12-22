@@ -39,4 +39,8 @@ module.exports = function (app) {
       res.render("singlepost", data);
     });
   });
+  app.get("/login", function (req, res) {
+    // login is a simple form that posts username and password /auth
+    res.render("login", {});
+  });
 };
