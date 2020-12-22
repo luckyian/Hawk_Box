@@ -17,12 +17,11 @@ module.exports = function (app) {
       res.json(dbPost);
     });
   });
-
-  app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/');
+  
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
   });
+
 
   app.post("/api/signup", function(req, res) {
     db.Users.create({
@@ -37,19 +36,6 @@ module.exports = function (app) {
       });
   });
 
-  app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's user and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        user: req.user.user,
-        id: req.user.id
-      });
-    }
-  });
 
   app.post("/api/newpost", function (req, res) {
     // let video = req.body.video;
