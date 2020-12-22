@@ -1,3 +1,4 @@
+// Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
 var bcrypt = require("bcryptjs");
 // Creating our User model
 module.exports = function (sequelize, DataTypes) {
@@ -37,12 +38,11 @@ module.exports = function (sequelize, DataTypes) {
     });
     // Associating User with Posts
     // When an User is deleted, also delete any associated Posts
-
     User.hasMany(models.Posts, {
       onDelete: "cascade",
+      // Associating User with comments
+      // When an User is deleted, also delete any associated comments
     });
   };
-
-  
   return User;
 };

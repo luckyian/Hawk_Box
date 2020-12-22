@@ -1,5 +1,6 @@
 const path = require("path");
 const db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Routes
 // =============================================================
@@ -44,8 +45,32 @@ module.exports = function (app) {
       res.render("singlepost", data);
     });
   });
+
+  app.get("/signup", function (req, res) {
+    // If the user already has an account send them to the homepage page
+    if (req.user) {
+      res.redirect("/");
+    }
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+  });
+
   app.get("/login", function (req, res) {
-    // login is a simple form that posts username and password /auth
-    res.render("login", {});
+    // If the user already has an account send them to the homepage page
+    if (req.user) {
+      res.redirect("/");
+    }
+    res.render("login");
+  });
+
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/", isAuthenticated, function (req, res) {
+    db.Posts.findOne({
+      order: [["id", "DESC"]],
+      limit: 1,
+    }).then((data) => {
+      console.log(data);
+      res.render("homepage", data);
+    });
   });
 };

@@ -1,4 +1,5 @@
 const db = require("../models");
+var passport = require("../config/passport");
 
 // Routes
 // =============================================================
@@ -15,6 +16,25 @@ module.exports = function (app) {
       res.json(dbPost);
     });
   });
+  
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
+  });
+
+
+  app.post("/api/signup", function(req, res) {
+    db.Users.create({
+      username: req.body.username,
+      password: req.body.password
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
+
 
   app.post("/api/newpost", function (req, res) {
     db.Posts.create({
