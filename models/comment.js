@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    const Comment = sequelize.define("Post", {
+    const Comment = sequelize.define("Comments", {
         body: {
             type: DataTypes.TEXT,
             allowNull: false,
@@ -9,9 +9,9 @@ module.exports = function (sequelize, DataTypes) {
         }
     })
     Comment.associate = function (models) {
-        // We're saying that a Comment should belong to an Author
-        // A Comment can't be created without an Author due to the foreign key constraint
-        Comment.belongsTo(models.Author, {
+        // We're saying that a Comment should belong to an User
+        // A Comment can't be created without an User due to the foreign key constraint
+        Comment.belongsTo(models.Users, {
             foreignKey: {
                 allowNull: false
             }
@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
     Comment.associate = function (models) {
         // We're saying that a Comment should belong to a Post
         // A Comment can't be created without a Post due to the foreign key constraint
-        Comment.belongsTo(models.Post, {
+        Comment.belongsTo(models.Posts, {
             foreignKey: {
                 allowNull: false
             }
