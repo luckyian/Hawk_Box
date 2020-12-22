@@ -34,6 +34,7 @@ app.use(express.static("public"));
 // =============================================================
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
+// require("./config/middleware/passport")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

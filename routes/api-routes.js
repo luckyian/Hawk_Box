@@ -10,10 +10,9 @@ module.exports = function (app) {
     if (req.query.author_id) {
       query.AuthorId = req.query.author_id;
     }
-    db.Post.findAll({
+    db.Posts.findAll({
       where: query,
     }).then(function (dbPost) {
-      
       res.json(dbPost);
     });
   });
@@ -38,16 +37,11 @@ module.exports = function (app) {
 
 
   app.post("/api/newpost", function (req, res) {
-    // let video = req.body.video;
-    // console.log(video);
-    // let newVideoStr = video.replace("watch", "embed");
-    // console.log(newVideoStr);
-    db.Post.create({
+    db.Posts.create({
       title: req.body.title,
       body: req.body.body,
       video: req.body.video,
     }).then(function (post) {
-     
       res.json(post);
     });
   });
