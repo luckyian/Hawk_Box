@@ -1,6 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
-
+const passport = require("./config/passport");
+const session = require("express-session");
 // Sets up the Express App
 // =============================================================
 const app = express();
@@ -12,6 +13,11 @@ const db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+//Keeps track of our user's login status
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Engine to use handlebars
 app.engine(
