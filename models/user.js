@@ -32,6 +32,9 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   User.associate = function (models) {
+    User.hasMany(models.Comments, {
+      onDelete: "cascade",
+    });
     // Associating User with Posts
     // When an User is deleted, also delete any associated Posts
 
@@ -40,13 +43,9 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  User.associate = function (models) {
-    // Associating User with comments
-    // When an User is deleted, also delete any associated comments
-
-    User.hasMany(models.Comments, {
-      onDelete: "cascade",
-    });
-  };
+  // User.associate = function (models) {
+  //   // Associating User with comments
+  //   // When an User is deleted, also delete any associated comments
+  // };
   return User;
 };

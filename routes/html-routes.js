@@ -34,6 +34,11 @@ module.exports = function (app) {
       where: {
         id: req.params.id,
       },
+      include: [
+        {
+          model: db.Comments,
+        },
+      ],
     }).then((data) => {
       console.log(data);
       res.render("singlepost", data);

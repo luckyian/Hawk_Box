@@ -17,10 +17,6 @@ module.exports = function (app) {
   });
 
   app.post("/api/newpost", function (req, res) {
-    // let video = req.body.video;
-    // console.log(video);
-    // let newVideoStr = video.replace("watch", "embed");
-    // console.log(newVideoStr);
     db.Posts.create({
       title: req.body.title,
       body: req.body.body,
