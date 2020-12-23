@@ -3,7 +3,6 @@ body {
   background-size: cover;
 }
 
-
 #navbar {
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -25,7 +24,6 @@ body {
   border-color: #ffffff;
 }
 
-
 #createPost {
   background-color: #76c15e;
   border-color: #b5b6ba;
@@ -38,7 +36,6 @@ body {
 .accordion-button {
   background-color: #b5b6ba;
 }
-
 
 #iframe {
   position: relative;
@@ -57,4 +54,16 @@ body {
 }
 #commentDisplay {
   margin-bottom: 10px;
+}
+.hide {
+  display: none;
+}
+.jumbotron {
+  background-color: #76c15e;
+  color: #00285b;
+
+  margin: 10px;
+}
+#seahawks {
+  max-width: 300px;
 }

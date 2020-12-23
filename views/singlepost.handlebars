@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Blog</a>
+          <a class="nav-link active" aria-current="page" href="/blogpost">Blog</a>
         </li>
       </ul>
     </div>
@@ -23,7 +23,8 @@
       <h5 class="card-header">{{dataValues.title}}</h5>
       <div class="card-body">
         <div id="iframe">
-          <iframe id="player" type="text/html" width="640" height="390" src="{{dataValues.video}}" frameborder="0"></iframe>
+          <iframe id="player" type="text/html" width="640" height="390" src="{{dataValues.video}}"
+            frameborder="0"></iframe>
         </div>
         <p class="card-text">{{dataValues.body}}</p>
         <label for="commentText">Leave a comment</label>
@@ -40,15 +41,14 @@
   <div class="col-8">
     <div class="card">
       <div class="card-body">
-        {{#each data}}
+        {{#each Comments}}
         <blockquote class="blockquote mb-0">
-          <p>{{comment}}</p>
-          <footer class="blockquote-footer"><cite title="author">{{author}}</cite></footer>
+          <p>{{dataValues.body}}</p>
+          <footer class="blockquote-footer"><cite title="author">{{dataValues.UserId}}</cite></footer>
         </blockquote>
+
         {{/each}}
       </div>
+      <div class="col-2"></div>
     </div>
-  </div>
-  <div class="col-2"></div>
-</div>
-<script src="/js/singlepost.js"></script>
+    <script src="/js/singlepost.js"></script>
