@@ -1,50 +1,52 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-light" id="navbar">
     <div class="container-fluid blog-nav">
-        <a class="navbar-brand" href="#">Hawk Box</a>
+        <a class="navbar-brand" href="/">
+            <img src="/images/logo.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Hawk Box
+        </a>
         <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-
-            </ul>
-            <a class="btn btn-primary" id="createPost" href="/blogpost" role="button">View Blog Post</a>
+            <a class="btn btn-primary" id="createPost" href="/blogpost" role="button">View Blog Posts</a>
 
             <a class="btn btn-primary" id="signIn" href="#" role="button">Sign in</a>
         </div>
     </div>
 </nav>
-<div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Hawk Box</h1>
-            <p class="lead">
-                A Place for Seahawks fans to discuss everything Seahawks!
-            </p>
-        </div>
-    </div>
+<div class="jumbotron">
+    <h1 class="display-4">Welcome Hawks Fans</h1>
+    <p class="lead">This is a place to discuss everything Seahawks!</p>
+
 </div>
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Current Season Stats</h5>
+                <h3 class="card-title">Current Season Stats</h3>
+                <img src="/images/seahawks.jpg" id="seahawks">
+                <hr class="my-4">
                 <p class="card-text">
-                    Total Touchdowns:<span id="touchdown"></span>
+                    Games so far:<span id="games"></span>
                     <br />
-                    Total Passing Yards:<span id="passingYards"></span>
+                    Touchdowns:<span id="touchdown"></span>
                     <br />
-                    :<span id="firstdown"></span>
+                    Passing Yards:<span id="passingYards"></span>
+                    <br />
+                    Passing Completions:<span id="passingComplete"></span>
+                    <br />
+                    Fumbles:<span id="fumbles"></span>
+                    <br />
+                    Passing Interceptions:<span id="passingIntercep"></span>
+                    <br />
+                    Passing Touchdowns:<span id="passingTouchdown"></span>
+                    <br />
+                    Red Zone Attempts:<span id="redZone"></span>
                     <br />
 
-                    <br />
-                <h5 class="card-title">Russel Wilson Stats</h5>
 
                 </p>
             </div>
@@ -54,9 +56,10 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Most Recent Post</h5>
+                <hr class="my-4">
                 <p>
-                    <a href="/singlepost/{{id}}">{{dataValues.title}}</a>
-                    <br>
+                <h4><a href="/singlepost/{{id}}">{{dataValues.title}}</a></h4>
+                <br>
                 <div id="iframe">
                     <iframe id="player" type="text/html" width="640" height="390" src="{{dataValues.video}}"
                         frameborder="0"></iframe>
