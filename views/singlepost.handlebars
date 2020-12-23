@@ -41,14 +41,13 @@
   <div class="col-8">
     <div class="card">
       <div class="card-body">
-        {{#each data}}
+        {{#each data.Comments}}
         <blockquote class="blockquote mb-0">
-          <p>{{comment}}</p>
-          <footer class="blockquote-footer"><cite title="author">{{user}}</cite></footer>
+          <p>{{Comments}}</p>
+          <footer class="blockquote-footer"><cite title="author">{{UserId}}</cite></footer>
         </blockquote>
+        
         {{/each}}
-      </div>
-    </div>
   </div>
   <div class="col-2"></div>
 </div>

@@ -41,7 +41,7 @@ module.exports = function (app) {
         },
       ],
     }).then((data) => {
-      console.log(data);
+      console.log(data.Comments);
       res.render("singlepost", data);
     });
   });
@@ -51,7 +51,7 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.render("signup");
   });
 
   app.get("/login", function (req, res) {
