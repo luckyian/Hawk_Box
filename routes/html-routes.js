@@ -12,7 +12,6 @@ module.exports = function (app) {
       order: [["id", "DESC"]],
       limit: 1,
     }).then((data) => {
-      console.log(data);
       res.render("homepage", data);
     });
   });
@@ -69,7 +68,6 @@ module.exports = function (app) {
       order: [["id", "DESC"]],
       limit: 1,
     }).then((data) => {
-      console.log(data);
       res.render("homepage", data);
     });
   });
