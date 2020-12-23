@@ -41,7 +41,7 @@ module.exports = function (app) {
         },
       ],
     }).then((data) => {
-      console.log(data.Comments);
+      // console.log(data.Comments);
       res.render("singlepost", data);
     });
   });

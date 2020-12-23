@@ -41,14 +41,15 @@
   <div class="col-8">
     <div class="card">
       <div class="card-body">
-        {{#each data.Comments}}
+        {{!-- {{log Comments[0]}} --}}
+        {{#each Comments}}
         <blockquote class="blockquote mb-0">
-          <p>{{Comments}}</p>
-          <footer class="blockquote-footer"><cite title="author">{{UserId}}</cite></footer>
+          <p>{{dataValues.body}}</p>
+          <footer class="blockquote-footer"><cite title="author">{{dataValues.UserId}}</cite></footer>
         </blockquote>
-        
+
         {{/each}}
-  </div>
-  <div class="col-2"></div>
-</div>
-<script src="/js/singlepost.js"></script>
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <script src="/js/singlepost.js"></script>
