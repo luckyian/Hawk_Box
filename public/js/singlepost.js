@@ -2,4 +2,6 @@
 
 if ($("#iframe[src=null]")) {
   $("#iframe").addClass("hide");
+} else {
+  $("#iframe").removeClass("hide");
 }

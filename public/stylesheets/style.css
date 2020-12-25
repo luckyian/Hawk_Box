@@ -65,3 +65,12 @@ body {
 .hide {
   display: none;
 }
+.jumbotron {
+  background-color: #76c15e;
+  color: #00285b;
+
+  margin: 10px;
+}
+#seahawks {
+  max-width: 300px;
+}
