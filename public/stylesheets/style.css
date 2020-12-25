@@ -24,6 +24,13 @@ body {
   border-color: #ffffff;
 }
 
+#signUp {
+  margin: 1%;
+}
+#signIn {
+  float:left;
+  margin: 1%;
+}
 #createPost {
   background-color: #76c15e;
   border-color: #b5b6ba;
@@ -67,3 +74,14 @@ body {
 #seahawks {
   max-width: 300px;
 }
+
+#signUpPageBtn {
+  background-color: #76c15e;
+  margin-top: 3%;
+}
+
+#logInPageBtn {
+  background-color: #76c15e;
+  margin-top: 3%;
+}
+
