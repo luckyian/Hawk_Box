@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$("#logInPageBtn").on("click", (event) => {
   // Getting references to our form and inputs
   var loginForm = $("form.login");
   var userInput = $("input#user-input");
