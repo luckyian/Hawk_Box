@@ -37,7 +37,7 @@ Be familier with JavaScript, [Express.js](https://expressjs.com/en/starter/insta
 
 ### Installation
 
-1. Clone the repository
+1. Clone the repository:
    git@github.<span></span>com:luckyian/Hawk_Box.git
 
 2. Navigate to the directory with the package.json and enter "npm i" to install all the dependencies.
@@ -59,7 +59,7 @@ This project currently has a few issues with passport.js that we are trying to r
 
 If you are interesting in contributing to this project please create a [pull request](https://github.com/luckyian/Hawk_Box/pulls).
 
-## My Contact Information
+## Our Contact Information
 
 Emails:
 
