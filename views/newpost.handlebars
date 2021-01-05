@@ -1,7 +1,10 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-light" id="navbar">
     <div class="container-fluid blog-nav">
-        <a class="navbar-brand" href="/">Hawk Box</a>
+        <a class="navbar-brand" href="/">
+            <img src="/images/logo.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Hawk Box
+        </a>
         <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -10,14 +13,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/blogpost">Blog</a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
+
             </ul>
+          
+            
+            
+            <a class="btn btn-primary" id="createPost" href="/blogpost" role="button">View Blog Post</a>
+
+            <a class="btn btn-primary border border-success" id="signIn" href="/login" role="button">Log in</a>
+
+            <a class="btn btn-primary" id="signUp" href="/signup" role="button">Sign up</a>
         </div>
     </div>
 </nav>
 <!-- Card for form -->
-<div class="container">
+<div class="container" id="newpmarg">
     <div class="row">
         <div class="col-4"></div>
         <div class="col-s-6 col-m-4 col-l-4">
