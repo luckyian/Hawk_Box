@@ -4,6 +4,11 @@ $("#logInPageBtn").on("click", (event) => {
   var userInput = $("input#user-input");
   var passwordInput = $("input#password-input");
 
+  function handleLoginErr(err) {
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+  }
+
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
   function loginUser(user, password) {
     $.post("/api/login", {
@@ -14,9 +19,7 @@ $("#logInPageBtn").on("click", (event) => {
         window.location.replace("/");
         // If there's an error, log the error
       })
-      .catch(function (err) {
-        console.log(err);
-      });
+      .catch(handleLoginErr);
   }
   // When the form is submitted, we validate there's an user and password entered
   loginForm.on("submit", function (event) {
