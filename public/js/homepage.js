@@ -17,7 +17,7 @@ $.ajax({
     renderTeamStats(response[27]);
   });
 });
-// Function to render the stats to the page
+// Function to render the current stats
 function renderTeamStats(results) {
   let totalScore = $("#touchdown");
   totalScore.text(` ${results.Touchdowns}`);
