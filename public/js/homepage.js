@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 //API Key for Sportsdataio
 const api_key = process.env.SPORTAPI;
 //API call to get the current football season
