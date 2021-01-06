@@ -1,21 +1,23 @@
 
-let getSeason =
-  "https://api.sportsdata.io/v3/nfl/scores/json/CurrentSeason?key=241bf3462fda4eebb6b748ab2574f691";
+//API Key for Sportsdataio
+const api_key = process.env.SPORTAPI;
+//API call to get the current football season
+let getSeason = `https://api.sportsdata.io/v3/nfl/scores/json/CurrentSeason?key=${api_key}`;
 $.ajax({
   url: getSeason,
   method: "GET",
 }).then(function (response) {
   let CurrentSeason = response;
-
-  let sportsURL = `https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/${CurrentSeason}?key=241bf3462fda4eebb6b748ab2574f691`;
+  // API to get current football stats
+  let sportsURL = `https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/${CurrentSeason}?key=${api_key}`;
   $.ajax({
     url: sportsURL,
     method: "GET",
   }).then(function (response) {
     renderTeamStats(response[27]);
-   
   });
 });
+// Function to render the stats to the page
 function renderTeamStats(results) {
   let totalScore = $("#touchdown");
   totalScore.text(` ${results.Touchdowns}`);
@@ -34,3 +36,9 @@ function renderTeamStats(results) {
   let redZone = $("#redZone");
   redZone.text(` ${results.RedZoneAttempts}`);
 }
+// If a video isn't submitted the video section is hidden
+$("#player").each(function () {
+  if ($(this).attr("src") === "") {
+    $(this).parent("#iframeDiv").hide();
+  }
+});
