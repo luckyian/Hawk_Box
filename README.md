@@ -23,6 +23,8 @@ View the live [application](https://hawkbox.herokuapp.com/)
 
 Welcome to the Hawk Box. A web page dedicated to everything Seahawks! On the home page you will find a list of current Seahawks stats courtesy of [Sportsdata.io](https://sportsdata.io/developers/api-documentation/nfl#/free). Along with the most recent blog post to peak your interest. Users can login or signup using the button in the top right of the web page. If you are a new user, you are instructed to create a new username and password for your account. This information is then stored in our database. The next time you visit the site you will be able to just log in and get started. Once you have created an account visit the blog post page and see if any peek your interest. You can click on "See More" to view the entire post and leave a comment about the post. Or feel free to create a post and include a Youtube link to your favorite Seahawks video for other users to comment on. The Youtube video you submit with your post will be embeded for others to view and enjoy as well.
 
+![](./public/images/hawkbox1.PNG) ![](./public/images/hawkbox2.PNG)
+
 ### Built With
 
 We used the Sportsdata api for the home page statistics. Express.js is used to set up the server and routes. Sequelize is used to set up and query the database. MySQL is our database. ESLint was used to keep our code consistent. Handlebar templates are used to render our web pages. Passport.js is the authentication middleware that is used to create a new user or log in a current user.
