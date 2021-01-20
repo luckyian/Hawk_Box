@@ -41,8 +41,8 @@ Object.keys(db).forEach((modelName) => {
   }
 });
 
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
-db.comments = require("./comment.model.js")(sequelize, Sequelize);
+// db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
+// db.comments = require("./comment.model.js")(sequelize, Sequelize);
 
 db.users.hasMany(db.comments, { as: "comments" });
 db.comments.belongsTo(db.users, {
