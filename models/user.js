@@ -33,6 +33,12 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   User.associate = function (models) {
+    // db.user.hasMany(db.comment, { as: "comments" });
+    // db.comment.belongsTo(db.user, {
+    //   foreignKey: "UserId",
+    //   as: "username",
+    // });
+
     User.hasMany(models.Comments, {
       onDelete: "cascade",
     });
