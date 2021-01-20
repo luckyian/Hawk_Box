@@ -41,11 +41,11 @@ Object.keys(db).forEach((modelName) => {
   }
 });
 
-// db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
-// db.comments = require("./comment.model.js")(sequelize, Sequelize);
+db.user = require("./user.js")(sequelize, Sequelize);
+db.comment = require("./comment.js")(sequelize, Sequelize);
 
-db.users.hasMany(db.comments, { as: "comments" });
-db.comments.belongsTo(db.users, {
+db.user.hasMany(db.comment, { as: "comments" });
+db.comment.belongsTo(db.user, {
   foreignKey: "UserId",
   as: "username",
 });
