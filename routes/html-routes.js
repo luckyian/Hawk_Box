@@ -12,8 +12,9 @@ module.exports = function (app) {
     //   order: [["id", "DESC"]],
     //   limit: 1,
     // }).then((data) => {
-      res.render("homepage", data);
+      // res.render("homepage", data);
     // });
+    res.render("homepage");
   });
 
   app.get("/blogpost", function (req, res) {
