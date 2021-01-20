@@ -8,12 +8,12 @@ module.exports = function (app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
   // index route loads view.html
   app.get("/", function (req, res) {
-    // db.Posts.findOne({
-    //   order: [["id", "DESC"]],
-    //   limit: 1,
-    // }).then((data) => {
-      // res.render("homepage", data);
-    // });
+    db.Posts.findOne({
+      order: [["id", "DESC"]],
+      limit: 1,
+    }).then((data) => {
+      res.render("homepage", data);
+    });
     res.render("homepage");
   });
 
