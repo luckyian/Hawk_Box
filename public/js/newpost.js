@@ -9,22 +9,21 @@ $("#newPost").on("click", (event) => {
   }
   // Function for replacing the "watch"
   // in the Youtube link with "embed"
-  let embedVideo = () => {
+  function embedVideo() {
     if (!newVideo.val().trim()) {
       return null;
     }
     let trimURL = newVideo.val().trim();
     trimURL = trimURL.slice(32);
     let replaceWatch = `https://www.youtube.com/embed/${trimURL}`;
-    console.log(replaceWatch);
+
     return replaceWatch;
-  };
+  }
   let post = {
     title: newTitle.val().trim(),
-    video: embedVideo,
+    video: embedVideo(),
     body: postBody.val().trim(),
   };
-
   newBlog(post);
 });
 
