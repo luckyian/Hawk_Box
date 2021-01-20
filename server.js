@@ -2,12 +2,14 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const passport = require("./config/passport");
 const session = require("express-session");
+const compression = require("compression");
 // Sets up the Express App
 // =============================================================
 const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
+app.use(compression());
 const db = require("./models");
 
 // Sets up the Express app to handle data parsing
@@ -15,7 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //Keeps track of our user's login status
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
