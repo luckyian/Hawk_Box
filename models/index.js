@@ -6,6 +6,7 @@ var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.js")[env];
 var db = {};
+
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
@@ -16,6 +17,7 @@ if (config.use_env_variable) {
     config
   );
 }
+
 fs.readdirSync(__dirname)
   .filter(function (file) {
     return (
@@ -23,7 +25,11 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(function (file) {
-    var model = sequelize["import"](path.join(__dirname, file));
+    const model = require(path.join(__dirname, file))(
+      sequelize,
+      Sequelize.DataTypes
+    );
+    // var model = sequelize["import"](path.join(__dirname, file));
     db[model.name] = model;
   });
 Object.keys(db).forEach(function (modelName) {
