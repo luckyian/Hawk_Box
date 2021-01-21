@@ -29,7 +29,7 @@ fs.readdirSync(__dirname)
       sequelize,
       Sequelize.DataTypes
     );
-    // var model = sequelize["import"](path.join(__dirname, file));
+    
     db[model.name] = model;
   });
 Object.keys(db).forEach(function (modelName) {
