@@ -14,6 +14,7 @@ module.exports = function (app) {
     }).then((data) => {
       res.render("homepage", data);
     });
+    // res.render("homepage");
   });
 
   app.get("/blogpost", function (req, res) {
